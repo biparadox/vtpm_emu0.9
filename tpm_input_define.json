@@ -1,0 +1,117 @@
+{
+	"head":
+	{
+		"name":"dtype_vtpm_input",
+		"type":"TYPELIST"
+	},
+	"record":
+	{
+		"elem_no":2,
+		"elemlist":
+		[
+			"VTPM_IN=0x2010",
+			"VTPM_OUT=0x2020"
+		]
+	}
+}
+{
+	"head":
+	{
+		"name":"subtype_vtpm_in",
+		"type":"SUBTYPELIST"
+	},
+	"record":
+	{
+		"type":"VTPM_IN",
+		"elem_no":2,
+		"elemlist":
+		[
+			"EXTEND=0x14",
+			"PCRREAD=0x15"
+		]
+	}
+}
+{
+	"head":
+	{
+		"name":"subtype_vtpm_out",
+		"type":"SUBTYPELIST"
+	},
+	"record":
+	{
+		"type":"VTPM_OUT",
+		"elem_no":2,
+		"elemlist":
+		[
+			"EXTEND=0x14",
+			"PCRREAD=0x15"
+		]
+	}
+}
+{
+	"head":
+	{
+		"name":"vtpm_in_PCRREAD",
+		"type":"RECORDTYPE"
+	},
+	"record":
+	{
+		"type":"VTPM_IN",
+		"subtype":"PCRREAD",
+		"struct_desc":
+		{
+			"elem_desc":
+			[
+				{"name":"tag","type":"SENUM","ref_name":"tpm_tag_value"},
+				{"name":"paramSize","type":"TPM32"},
+				{"name":"ordinal","type":"ENUM","ref_name":"tpm_ordinal_value"},
+				{"name":"pcrIndex","type":"TPM32"}
+			]
+		}
+	}	
+}
+{
+	"head":
+	{
+		"name":"vtpm_in_EXTEND",
+		"type":"RECORDTYPE"
+	},
+	"record":
+	{
+		"type":"VTPM_IN",
+		"subtype":"EXTEND",
+		"struct_desc":
+		{
+			"elem_desc":
+			[
+				{"name":"tag","type":"SENUM","ref_name":"tpm_tag_value"},
+				{"name":"paramSize","type":"TPM32"},
+				{"name":"ordinal","type":"ENUM","ref_name":"tpm_ordinal_value"},
+				{"name":"pcrIndex","type":"TPM32"},
+				{"name":"outDigest","type":"BINDATA","size":"20"}
+			]
+		}
+	}	
+}
+{
+	"head":
+	{
+		"name":"vtpm_out_EXTEND",
+		"type":"RECORDTYPE"
+	},
+	"record":
+	{
+		"type":"VTPM_OUT",
+		"subtype":"EXTEND",
+		"struct_desc":
+		{
+			"elem_desc":
+			[
+				{"name":"tag","type":"SENUM","ref_name":"tpm_tag_value"},
+				{"name":"paramSize","type":"TPM32"},
+				{"name":"returnCode","type":"ENUM","ref_name":"tpm_ordinal_value"},
+				{"name":"outDigest","type":"BINDATA","size":"20"}
+			]
+		}
+	}	
+}

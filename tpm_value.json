@@ -1,0 +1,36 @@
+{
+	"head":
+	{
+		"name":"tpm_ordinal_value",
+		"type":"NAMELIST"
+	},
+	"record":
+	{
+		"elem_no":2,
+		"elemlist":
+		[
+			"EXTEND=0x14",
+			"PCRREAD=0x15"
+		]
+	}
+}
+{
+	"head":
+	{
+		"name":"tpm_tag_value",
+		"type":"NAMELIST"
+	},
+	"record":
+	{
+		"elem_no":6,
+		"elemlist":
+		[
+			"RQU_COMMAND=0xC1",
+			"RQU_AUTH1_COMMAND",
+			"RQU_AUTH2_COMMAND",
+			"RSP_COMMAND",
+			"RSP_AUTH1_COMMAND",
+			"RSP_AUTH2_COMMAND"
+		]
+	}
+}
