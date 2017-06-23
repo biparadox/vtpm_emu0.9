@@ -127,11 +127,11 @@ int proc_extend_in ( void * sub_proc, void * para)
 	extend->ordinal=0x14;
 
 	extend->pcrIndex=Atoi(start_para->argv[3],10);
-//	calculate_context_sha1(start_para->argv[5],Strlen(start_para->argv[5]),extend->outDigest);
-	SHA_CTX sha;
-	SHA1_Init(&sha);
-	SHA1_Update(&sha,start_para->argv[5],Strlen(start_para->argv[5]));
-	SHA1_Final(extend->outDigest,&sha);
+	calculate_context_sha1(start_para->argv[5],Strlen(start_para->argv[5]),extend->outDigest);
+//	SHA_CTX sha;
+//	SHA1_Init(&sha);
+//	SHA1_Update(&sha,start_para->argv[5],Strlen(start_para->argv[5]));
+//	SHA1_Final(extend->outDigest,&sha);
 	
 	message_add_record(send_msg,extend);
 

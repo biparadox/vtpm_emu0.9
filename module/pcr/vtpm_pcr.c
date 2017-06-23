@@ -114,11 +114,11 @@ int proc_vtpm_extend(void * sub_proc,void * recv_msg)
 	pcr=pcr_scene[0].pcr+vtpm_extend->pcrIndex*pcr_size;
 	Memcpy(buffer,pcr,pcr_size);
 	Memcpy(buffer+pcr_size,vtpm_extend->outDigest,pcr_size);
-//	calculate_context_sha1(buffer,pcr_size*2,pcr);
-	SHA_CTX sha;
-	SHA1_Init(&sha);
-	SHA1_Update(&sha,buffer,pcr_size*2);
-	SHA1_Final(pcr,&sha);
+	calculate_context_sha1(buffer,pcr_size*2,pcr);
+//	SHA_CTX sha;
+//	SHA1_Init(&sha);
+//	SHA1_Update(&sha,buffer,pcr_size*2);
+//	SHA1_Final(pcr,&sha);
 	
 	vtpm_extend_out=Talloc(sizeof(*vtpm_extend_out));
 	if(vtpm_extend_out==NULL)
